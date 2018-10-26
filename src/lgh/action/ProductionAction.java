@@ -100,7 +100,9 @@ public class ProductionAction extends ActionSupport implements ModelDriven<Produ
     }
     public String get3(){
         Member member = (Member) ActionContext.getContext().getSession().get("login2");
-        memberService.addByViewProduction(member.getId());
+        if(member!=null) {
+            memberService.addByViewProduction(member.getId());
+        }
         productionService.addRead(production.getId());
         Production production1 = productionService.getProdu(production.getId());
         ServletActionContext.getRequest().setAttribute("production",production1);
