@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<!--&lt;!&ndash; 整合spring &ndash;&gt;-->
+	<constant name="struts.objectFactory" value="spring"/>
+	<constant name="struts.custom.i18n.resources" value="message" />
+	<package name="basicstruts2" extends="struts-default">
+		<global-results>
+			<result>/success.jsp</result>
+			<result name="input">/error.jsp</result>
+			<result name="qqEROR">/qqeror.jsp</result>
+		</global-results>
+		<action name="*-*" class="lgh.action.{1}Action" method="{2}">
+			<result name="accountQuery">/admin/admin-list.jsp</result>
+			<result name="memberQuery">/admin/member-list.jsp</result>
+			<result name="productionQuery">/admin/article-list.jsp</result>
+			<result name="productionQuery2">/production.jsp</result>
+			<result name="taskQuery">/admin/task-list.jsp</result>
+			<result name="OK">/admin/OK.html</result>
+			<result name="loginFail">/admin/Fail.html</result>
+			<result name="index">/admin/index.jsp</result>
+			<result name="index2">/index.jsp</result>
+			<result name="memberGet">/persional.jsp</result>
+			<result name="taskGet">/Task_detail.jsp</result>
+			<result name="login">/admin/login.html</result>
+			<result name="memberUpdate">/admin/member-update.jsp</result>
+			<result name="taskUpdate">/admin/task-update.jsp</result>
+			<result name="productionShow1">/admin/article-zhang.jsp</result>
+			<result name="productionShow2">/production_details.jsp</result>
+			<result name="taskShow1">/admin/task-zhang.jsp</result>
+			<result name="queryByTask">/admin/grade-list.jsp</result>
+			<result name="piGai">/admin/task-pigai.jsp</result>
+
+		</action>
+	</package>
+
+</struts>

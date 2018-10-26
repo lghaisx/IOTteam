@@ -1,0 +1,94 @@
+.zpt{
+    width: 100%;
+    height: 90px;
+    border-bottom: 1px solid #e1e1e1;
+}
+.sd{
+    float: left;
+    width: 220px;
+    height: 120px;
+    /*border: 1px solid rosybrown;*/
+    margin-left: 31%;
+}
+.rd{
+    float: right;
+    width: 200px;
+    height: 120px;
+    /*border: 1px solid rebeccapurple;*/
+    margin-right: 35%;
+    position: relative;
+}
+.rd span{
+    font-size: 18px;
+    color: #0143bf;
+    position: absolute;
+    top:17%;
+    left:45%;
+}
+.rd .zy3{
+    font-size: 16px;
+    color: #696969;
+    position:absolute;
+    top:41%;
+    left: 45%;
+}
+.rd img{
+    position: absolute;
+    top:8%;
+    left:5%;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.zpName{
+    font-size: 19px;
+    font-weight: bold;
+    color: #626262;
+    margin-top: 6px;
+    margin-left: 6px;
+}
+.time{
+    font-size: 13px;
+    color: #b5b5b5;
+    margin-top: 6px;
+    margin-left: 7px;
+}
+@font-face {
+    font-family: 'iconfont';  /* project id 882895 */
+    src: url('//at.alicdn.com/t/font_882895_myqlkhuk1pi.eot');
+    src: url('//at.alicdn.com/t/font_882895_myqlkhuk1pi.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_882895_myqlkhuk1pi.woff') format('woff'),
+    url('//at.alicdn.com/t/font_882895_myqlkhuk1pi.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_882895_myqlkhuk1pi.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    /*font-size:16px;*/
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.view{
+    color: #646464;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 7px;
+    margin-left: 9px;
+}
+.zan2{
+    color: #646464;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 7px;
+    margin-left: 18px;
+    cursor: pointer;
+}
+.pro_cont{
+    width: 70%;
+    min-height: 700px;
+    margin: 0 auto;
+    border: 1px solid #dedede;
+    border-top:none;
+}

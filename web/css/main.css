@@ -1,0 +1,137 @@
+@charset "utf-8";
+
+#goodcover{
+    display:none;
+    position:absolute;
+    top:0%;
+    left:0%;
+    width:100%;
+    height:133%;
+    background-color:#000;
+    z-index:1001;
+    -moz-opacity:.8;
+    opacity:.5;
+    filter:alpha(opacity=80)
+}
+#code{
+    width:350px;
+    height:200px;
+    background-color:#fff;
+    padding:10px;
+    position:absolute;
+    display:none;
+    left:45%;
+    z-index:1002
+}
+#code2{
+    width:350px;
+    height:200px;
+    background-color:#fff;
+    padding:10px;
+    position:absolute;
+    display:none;
+    left:45%;
+    z-index:1002
+}
+.close1{
+    width:300px;
+    height:60px
+}
+#closebt{
+    float:right
+}
+#closebt img,#closebt2 img{
+    width:20px;
+    height: 20px;
+    margin-left: 102%;
+
+}
+#update,#zym{
+    width: 91%;
+    height:180px;
+    /*border:1px solid #FF5722;*/
+    position: absolute;
+    top: 15%;
+    left: 4%;
+}
+.qq2 {
+    font-size: 16px;
+    color: #333333;
+    position: absolute;
+    top: 12%;
+    left: 2%;
+}
+.qq_input{
+    width: 74%;
+    height: 28px;
+    outline: none;
+    font-size: 15px;
+    border:2px solid #1E9FFF;
+    border-radius: 3px;
+    position: absolute;
+    top:9%;
+    left:19%;
+}
+.zui{
+    width: 74%;
+    height: 28px;
+    outline: none;
+    font-size: 15px;
+    border:2px solid #1E9FFF;
+    border-radius: 3px;
+    position: absolute;
+    top:9%;
+    left:19%;
+}
+.password{
+    font-size: 16px;
+    color: #333333;
+    position: absolute;
+    top: 36%;
+    left: 2%;
+}
+.pwd_input{
+    width: 74%;
+    height: 28px;
+    outline: none;
+    font-size: 15px;
+    border:2px solid #1E9FFF;
+    border-radius: 3px;
+    position: absolute;
+    top:32%;
+    left:19%;
+}
+.pwd_input2{
+    width: 69%;
+    height: 28px;
+    outline: none;
+    font-size: 15px;
+    border:2px solid #1E9FFF;
+    border-radius: 3px;
+    position: absolute;
+    top:55%;
+    left:24%;
+}
+.queren{
+    font-size: 16px;
+    color: #333333;
+    position: absolute;
+    top: 58%;
+    left: 2%;
+}
+#buttonw,#df{
+    width: 90px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #1E9FFF;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 2%;
+    left: 34%;
+    cursor: pointer;
+}

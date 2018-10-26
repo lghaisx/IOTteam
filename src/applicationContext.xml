@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder location="classpath:jdbc.properties"/>
+	 <!--c3p0数据源  -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driverClass}"/>
+		<property name="jdbcUrl" value="${jdbc.url}"/>
+		<property name="user" value="${jdbc.user}"/>
+		<property name="password" value="${jdbc.password}"/>
+	</bean>
+
+	<!-- sessionFactory 就是 HibernateAPI SessionFactory 对象 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<!-- JDBC数据源 -->
+		<property name="dataSource" ref="dataSource"/>
+		<!-- Hibernate常规属性 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop>
+			</props>
+		</property>
+		<!-- 配置自动扫描  -->
+		<property name="packagesToScan">
+			<list>
+				<value>lgh.model</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	 <!--注解驱动事务管理 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<!--管理员dao层-->
+	<bean id="accountDao" class="lgh.dao.Impl.GenericDAOImpl">
+		<constructor-arg index="0" value="lgh.model.Account"/>
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!--管理员service层-->
+	<bean id="accountService" class="lgh.service.Impl.AccountServiceImpl">
+		<property name="accountDao" ref="accountDao"/>
+	</bean>
+	<!--成员dao层-->
+	<bean id="memberDao" class="lgh.dao.Impl.GenericDAOImpl">
+		<constructor-arg index="0" value="lgh.model.Member"/>
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!--成员service层-->
+	<bean id="memberService" class="lgh.service.Impl.MemberServiceImpl">
+		<property name="memberDao" ref="memberDao"/>
+	</bean>
+	<!--作业dao层-->
+	<bean id="taskDao" class="lgh.dao.Impl.GenericDAOImpl">
+		<constructor-arg index="0" value="lgh.model.Task"/>
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!--作业service层-->
+	<bean id="taskService" class="lgh.service.Impl.TaskServiceImpl">
+		<property name="taskDao" ref="taskDao"/>
+	</bean>
+	<!--作品dao层-->
+	<bean id="productionDao" class="lgh.dao.Impl.GenericDAOImpl">
+		<constructor-arg index="0" value="lgh.model.Production"/>
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!--作品service层-->
+	<bean id="productionService" class="lgh.service.Impl.ProductionServiceImpl">
+		<property name="productionDao" ref="productionDao"/>
+	</bean>
+	<!--作业单dao层-->
+	<bean id="mftDao" class="lgh.dao.Impl.GenericDAOImpl">
+		<constructor-arg index="0" value="lgh.model.MemForTask"/>
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!--作业单service层-->
+	<bean id="mftService" class="lgh.service.Impl.MemForTaskServiceImpl">
+		<property name="mftDao" ref="mftDao"/>
+	</bean>
+</beans>
