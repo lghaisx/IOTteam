@@ -2,7 +2,9 @@ package lgh.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /*
 作业表
@@ -25,6 +27,16 @@ public class Task {
     private int commitNum;   //提交人数
     private String staut;
     private String gaishu;  //概述
+    @OneToMany(targetEntity = MemForTask.class,cascade = CascadeType.ALL,mappedBy = "task")
+    private Set<MemForTask> memForTasks = new HashSet<>();
+
+    public Set<MemForTask> getMemForTasks() {
+        return memForTasks;
+    }
+
+    public void setMemForTasks(Set<MemForTask> memForTasks) {
+        this.memForTasks = memForTasks;
+    }
 
     public String getGaishu() {
         return gaishu;

@@ -1,6 +1,8 @@
 package lgh.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /*
 成员表
@@ -28,6 +30,27 @@ public class Member {
     private String pwd;  //密码
     private String zhuanYe;  //专业
     private String motto;  //座右铭
+    @OneToMany(targetEntity = Production.class,cascade = CascadeType.ALL,mappedBy = "member")
+    private Set<Production> productions = new HashSet<>();
+    @OneToMany(targetEntity = MemForTask.class,cascade = CascadeType.ALL,mappedBy = "member")
+    private Set<MemForTask> memForTasks = new HashSet<>();
+
+    public Set<MemForTask> getMemForTasks() {
+        return memForTasks;
+    }
+
+    public void setMemForTasks(Set<MemForTask> memForTasks) {
+        this.memForTasks = memForTasks;
+    }
+
+    public Set<Production> getProductions() {
+        return productions;
+    }
+
+    public void setProductions(Set<Production> productions) {
+        this.productions = productions;
+    }
+
     public String getPwd() {
         return pwd;
     }
